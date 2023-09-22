@@ -110,20 +110,120 @@
           </ul>
         </section>
 
-        <section><h2>Data Collection Method</h2></section>
+        <section data-auto-animate><h2>Data Collection Method</h2></section>
 
-        <section>Show raw images</section>
+        <section data-auto-animate>
+          <h2>Data Collection Method</h2>
+          <p>4 days after applying herbicide</p>
+          <p>1 leaf per sample (top mature leaf)</p>
+        </section>
 
-        <section>Pre processing images</section>
+        <section>
+          <div class="r-hstack justify-center">
+            <div>
+              <img src="./img/raw/24d-11.jpg" alt="24-D" />
+              <h5>24-D</h5>
+            </div>
+            <div>
+              <img src="./img/raw/dicemba-4.jpg" alt="Dicamba" />
+              <h5>Dicamba</h5>
+            </div>
+            <div>
+              <img src="./img/raw/atrazine-13.jpg" alt="Atrazine" />
+              <h5>Atrazine</h5>
+            </div>
+          </div>
+          <div class="r-hstack justify-center">
+            <div>
+              <img src="./img/raw/flumioxazin-6.jpg" alt="Flumioxazin" />
+              <h5>Flumioxazin</h5>
+            </div>
+            <div>
+              <img src="./img/raw/mesotrione-12.jpg" alt="Mesotrione" />
+              <h5>Mesotrione</h5>
+            </div>
+            <div>
+              <img src="./img/raw/norflurazon-5.jpg" alt="Norflurazon" />
+              <h5>Norflurazon</h5>
+            </div>
+          </div>
+        </section>
 
-        <section>devide leaf section</section>
+        <section data-auto-animate>
+          <h2>Feature Extraction</h2>
+          <div data-id="pre-process" class="justify-center">
+            <img src="./img/raw/utc-12.jpg" alt="Raw" />
+          </div>
+        </section>
 
-        <section>Cross validation</section>
+        <!-- <section data-auto-animate>
+          <h2>Feature Extraction</h2>
+          <div data-id="pre-process" class="justify-center">
+            <img src="./img/utc-12.jpg" alt="Processed" />
+          </div>
+        </section> -->
 
-        <section>Classification algorithms</section>
+        <section data-auto-animate>
+          <div data-id="pre-process" class="justify-center">
+            <img src="./img/utc-12.jpg" alt="Processed" />
+          </div>
+          <p>3 sections: base, mid, and top</p>
+          <p class="fragment" data-fragment-index="1">
+            2 sets of features: color and texture
+          </p>
+          <h2 class="fragment" data-fragment-index="2">396 features</h2>
+        </section>
 
-        <section>Result</section>
+        <section data-auto-animate><h2>ML Traning Method</h2></section>
 
+        <section data-auto-animate>
+          <h2>ML Traning Method</h2>
+          <p>Cross Validation</p>
+          <p class="fragment" data-fragment-index="1">
+            Randomly select 2 leaves/group as validation samples
+          </p>
+          <p class="fragment" data-fragment-index="2">5,000 rounds</p>
+        </section>
+
+        <section>
+          <h2>Classification algorithms</h2>
+          <ul>
+            <li>Support vector machine</li>
+            <li>K-nearest neighbors</li>
+            <li>Gaussian naïve Bayes</li>
+            <li>Decision tree</li>
+            <li>
+              Random forest
+              <span class="fragment" data-fragment-index="1">👑</span>
+            </li>
+          </ul>
+        </section>
+
+        <section><h2>Result</h2></section>
+
+        <section>
+          <div class="justify-center">
+            <img src="./img/confusion.jpg" alt="result" />
+          </div>
+        </section>
+
+        <section data-auto-animate><h2>Key Findings</h2></section>
+
+        <section data-auto-animate>
+          <h2>Key Findings</h2>
+          <p>Overall classification performance ~ 66%</p>
+          <p class="fragment" data-fragment-index="1">
+            Group F, M, and N performance > 80% , FN rate 0.5%
+          </p>
+          <p class="fragment" data-fragment-index="2">
+            The remaining groups performance ~ 50% 
+          </p>
+          <p class="fragment" data-fragment-index="3">
+            Detecting herbicide rate is 85% 
+          </p>
+        </section>
+
+        <section><h1>Thank you</h1></section>
       </div>
     </div>
 
