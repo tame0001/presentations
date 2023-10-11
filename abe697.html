@@ -19,18 +19,31 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
+        <section data-notes="Something important">
+          <aside class="notes">
+            Hello, my name is Thirawat Bureetes. Welcome to my presenation on
+            Detecting Chemical Drift Damages on Water Hemp Using RGB Images from
+            Mobile Phone.
+          </aside>
           <h3>
             Detecting Chemical Drift Damages on Water Hemp Using RGB Images from
             Mobile Phone
           </h3>
           <h4>Thirawat Bureetes</h4>
-          <p>September 22, 2023</p>
         </section>
 
-        <section data-auto-animate><h2>What Is Chemical Drift?</h2></section>
+        <section data-auto-animate>
+          <h2>What Is Chemical Drift?</h2>
+          <aside class="notes">Let's start with what is chemical drift.</aside>
+        </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            Imagine that one day you see a sprayer working on nearby field. The
+            wind could blow some chemical droplets to your field. You might not
+            know what chemical is it. But you defenately don't want it on your
+            field.
+          </aside>
           <h2>What Is Chemical Drift?</h2>
           <p>
             An unintentional movement of the pesticide or herbicide droplets
@@ -39,10 +52,14 @@
         </section>
 
         <section data-auto-animate>
+          <aside class="notes">Those chemical could be harmful to crops.</aside>
           <h2>What Does Chemical Drift Impact To Crops?</h2>
         </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            It could redude the yield or even kill the crops.
+          </aside>
           <h2>What Does Chemical Drift Impact To Crops?</h2>
           <ul>
             <li>Reducing yield</li>
@@ -50,14 +67,24 @@
           </ul>
         </section>
 
-        <section data-auto-animate><h2>What Can We Do?</h2></section>
+        <section data-auto-animate>
+          <h2>
+            What Can We Do?
+            <aside class="notes">What can we do then?</aside>
+          </h2>
+        </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            We want to detect the sign of damages as soon as possible. As well
+            as the type of the chemical.
+          </aside>
           <h2>What Can We Do?</h2>
           <p>Detecting the sign of damange as early as possible</p>
         </section>
 
         <section data-auto-animate>
+          <aside class="notes">But how?</aside>
           <h2>What Can We Do?</h2>
           <p>Detecting the sign of damange as early as possible</p>
           <br />
@@ -65,8 +92,14 @@
         </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            We can teach teach machines to detect and identify the type of
+            chemical by leaf images. With hyperspectral camera and multispectral
+            camera, it works. But these devices are expensive. This project aims
+            to do the same job with a camera on an inexpensive mobile phone.
+          </aside>
           <h1>How?</h1>
-          <p>Images + Machine Learning</p>
+          <p>Leaf Images + Machine Learning</p>
           <ul>
             <li class="fragment" data-fragment-index="1">
               Hyperspectral images
@@ -82,9 +115,19 @@
           </ul>
         </section>
 
-        <section data-auto-animate><h2>Materials</h2></section>
+        <section data-auto-animate>
+          <h2>Materials</h2>
+          <aside class="notes">
+            The materials that we used in this project are
+          </aside>
+        </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            First, a Sansung Galexy A14 which costs less than $200. The sample
+            plants for this study is water hemps. And we used 6 different type
+            of herbicide.
+          </aside>
           <h2>Materials</h2>
           <p>$199 Samsung Galexy A14</p>
           <p class="fragment" data-fragment-index="1">Water hemps</p>
@@ -92,6 +135,10 @@
         </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            Each herbicide is applied to 16 water hemps. And there one group of
+            water hemps that has no herbicide treaments as a reference group.
+          </aside>
           <h2>Materials</h2>
           <p>$199 Samsung Galexy A14</p>
           <p>16 x 7 = 112 Water hemps</p>
@@ -99,9 +146,12 @@
         </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            These are 6 types of herbicide in this study.
+          </aside>
           <p>6 types of herbicide</p>
           <ul>
-            <li>24-D</li>
+            <li>2,4D</li>
             <li>Dicamba</li>
             <li>Atrazine</li>
             <li>Flumioxazin</li>
@@ -216,10 +266,10 @@
             Group F, M, and N performance > 80% , FN rate 0.5%
           </p>
           <p class="fragment" data-fragment-index="2">
-            The remaining groups performance ~ 50% 
+            The remaining groups performance ~ 50%
           </p>
           <p class="fragment" data-fragment-index="3">
-            Detecting herbicide rate is 85% 
+            Detecting herbicide rate is 85%
           </p>
         </section>
 
@@ -231,15 +281,27 @@
     <script src="revealjs/plugin/notes/notes.js"></script>
     <script src="revealjs/plugin/markdown/markdown.js"></script>
     <script src="revealjs/plugin/highlight/highlight.js"></script>
+
+    <!-- Audio slideshow plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/recorder.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.js"></script>
     <script>
       // More info about initialization & config:
       // - https://revealjs.com/initialization/
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
+        audio: {},
 
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealAudioSlideshow,
+          RevealAudioRecorder,
+        ],
       });
     </script>
   </body>
