@@ -160,15 +160,26 @@
           </ul>
         </section>
 
-        <section data-auto-animate><h2>Data Collection Method</h2></section>
+        <section data-auto-animate>
+          <h2>Data Collection Method</h2>
+          <aside class="notes">Next question, how did we correct data?</aside>
+        </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            We took images 4 days after applying herbicide treaments. We only
+            took one leaf image per one plant sample. The leaf we chose was the
+            youngest but already mature leaf.
+          </aside>
           <h2>Data Collection Method</h2>
           <p>4 days after applying herbicide</p>
           <p>1 leaf per sample (top mature leaf)</p>
         </section>
 
         <section>
+          <aside class="notes">
+            These are examples of raw images from each treament group.
+          </aside>
           <div class="r-hstack justify-center">
             <div>
               <img src="./img/raw/24d-11.jpg" alt="24-D" />
@@ -201,6 +212,10 @@
 
         <section data-auto-animate>
           <h2>Feature Extraction</h2>
+          <aside class="notes">
+            The next step is to extract features for training machine learning
+            models. This is a raw images.
+          </aside>
           <div data-id="pre-process" class="justify-center">
             <img src="./img/raw/utc-12.jpg" alt="Raw" />
           </div>
@@ -214,6 +229,12 @@
         </section> -->
 
         <section data-auto-animate>
+          <aside class="notes">
+            This is a same image as shown previously but after removing
+            background and color calibration. The leaf is devided into 3 zones:
+            base, mid, top. There are two groups of features: color and texture.
+            There are 396 features in total for each leaf sample.
+          </aside>
           <div data-id="pre-process" class="justify-center">
             <img src="./img/utc-12.jpg" alt="Processed" />
           </div>
@@ -224,9 +245,18 @@
           <h2 class="fragment" data-fragment-index="2">396 features</h2>
         </section>
 
-        <section data-auto-animate><h2>ML Traning Method</h2></section>
+        <section data-auto-animate>
+          <h2>ML Traning Method</h2>
+          <aside class="notes">It is time for training</aside>
+        </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            Since there are only 16 samples from each herbicide treament which
+            is not a lot. The training method applies cross validation
+            technique. In each training round, 2 samples from each group are
+            randomly left out for validation. This cycle runs 5,000 times.
+          </aside>
           <h2>ML Traning Method</h2>
           <p>Cross Validation</p>
           <p class="fragment" data-fragment-index="1">
@@ -236,6 +266,10 @@
         </section>
 
         <section>
+          <aside class="notes">
+            We tries on 5 classification models. We found that random forest has
+            the best outcome.
+          </aside>
           <h2>Classification algorithms</h2>
           <ul>
             <li>Support vector machine</li>
@@ -249,7 +283,15 @@
           </ul>
         </section>
 
-        <section><h2>Result</h2></section>
+        <section>
+          <aside class="notes">
+            The horizontal labels are true labels and the verticle are pridicted
+            labels. Each cell represents the percentage of the prediction.
+            Ideally, we want to see 1 or close to 1 along the diagonal axis.
+          </aside>
+          <h2>Result</h2>
+          <aside class="notes">This is the result.</aside>
+        </section>
 
         <section>
           <div class="justify-center">
@@ -257,9 +299,23 @@
           </div>
         </section>
 
-        <section data-auto-animate><h2>Key Findings</h2></section>
+        <section data-auto-animate>
+          <h2>Key Findings</h2>
+          <aside class="notes">
+            From the confusion matrix, here is the highlight
+          </aside>
+        </section>
 
         <section data-auto-animate>
+          <aside class="notes">
+            overall performance is 66%. It means the model can correctly
+            classify herbicide treaments about 2/3 of the trails. For 3
+            herbicide, the performance is even better than 80% which false
+            positive rate lower than 0.5%. For the remaining group, the model
+            can classify at 50% chance. However, if we only asks the model to if
+            the chemical is applied or not without indentify the type of
+            herbicide, the model can get the correct prediction 85% of the time.
+          </aside>
           <h2>Key Findings</h2>
           <p>Overall classification performance ~ 66%</p>
           <p class="fragment" data-fragment-index="1">
