@@ -13,6 +13,25 @@
     <link rel="stylesheet" href="revealjs/dist/reveal.css" />
     <link rel="stylesheet" href="revealjs/dist/theme/white.css" />
 
+    <!-- Font awesome is required for the chalkboard plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css"
+    />
+    <!-- Chalkboard plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"
+    />
+
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="revealjs/plugin/highlight/monokai.css" />
     <!-- Ankita's theme overrides-->
@@ -31,11 +50,264 @@
         </section>
 
         <section>
+          <aside class="notes">
+            How to deal with spatial data in Python. Next lecture, how to use
+            this data in Django.
+          </aside>
           <h3>Outline for Today</h3>
           <ul>
-            <li>Why do we care about using geometric or spatial data?</li>
-            <li>How do computers represent geometry?</li>
-            <li>What are common libraries for handling geometric data?</li>
+            <li>Introduction to geometry in Python</li>
+            <li>From geometry to spatial data</li>
+          </ul>
+        </section>
+
+        <section>
+          <aside class="notes">
+            Hand-on lecture. Code together. Need install new packages. First,
+            activate conda environment. Then install packages.
+          </aside>
+          <h3>Install Python packages</h3>
+          <pre><code data-line-numbers="1|2-3">conda activate asm591
+conda install pyarrow
+conda install -c conda-forge geopandas
+        </code></pre>
+          <p>You can find commands in module 6 -> lab 6</p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Geometry fundamental element</h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Geometry fundamental element</h3>
+          <h3>Point</h3>
+          <svg width="600" height="200">
+            <circle
+              cx="300"
+              cy="100"
+              r="10"
+              stroke="green"
+              stroke-width="4"
+              fill="yellow"
+            />
+          </svg>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Geometry fundamental element</h3>
+          <h3>Line</h3>
+          <svg width="600" height="200">
+            <rect
+              x="15"
+              y="100"
+              rx="10"
+              ry="10"
+              width="570"
+              height="10"
+              style="fill: yellow; stroke: green; stroke-width: 4"
+            />
+          </svg>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Geometry fundamental element</h3>
+          <h3>Polygon</h3>
+          <svg width="300" height="200">
+            <polygon
+              points="200,10 280,198 100,100 10,150 10,120"
+              style="fill: yellow; stroke: green; stroke-width: 4"
+            />
+          </svg>
+        </section>
+
+        <section>
+          <h3>Geometric Object In Python</h3>
+          <h2>Shapely</h2>
+          <span class="text-small"
+            >https://shapely.readthedocs.io/en/stable/index.html</span
+          >
+        </section>
+
+        <section>
+          <aside class="notes">
+            Switch to terminal and create demo objects
+          </aside>
+          <pre><code data-line-numbers="1|2|3-4|5-6">import shapely.geometry as geo
+point = geo.Point(0, 0)
+line = geo.LineString([[0, 0], [1, 0]])
+line.length
+polygon = geo.Polygon(((0, 0), (0, 1), (1, 1), (1, 0)))
+polygon.area
+          </code></pre>
+        </section>
+
+        <section>
+          <aside class="notes">Keep using terminal</aside>
+          <pre><code data-line-numbers="1-3|4-7|8-9">point_a = geo.Point(0, 0)
+point_b = geo.Point(10, 5)
+point_a.distance(point_b)
+line_a = geo.LineString([[0, 0], [10, 0]])
+line_b = geo.LineString([[5, -5], [5, 5]])
+line_a.intersects(line_b)
+line_a.intersection(line_b)
+polygon.contains(point_a)
+polygon.contains(line_b)</code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <h3>From Geometry To GeoSpatial</h3>
+          <h2>GeoPandas</h2>
+          <span class="text-small"
+            >https://geopandas.org/en/stable/index.html</span
+          >
+        </section>
+
+        <section data-auto-animate>
+          <h2>GeoPandas</h2>
+          <span>Pandas + Shapely</span>
+        </section>
+
+        <section>
+          <aside class="notes">Emphasize on geometry column</aside>
+          <span><b>geometry</b> column contains <b>shapely</b> objects</span>
+          <pre><code data-trim>
+            import geopandas as gpd
+            world_df = gpd.read_file(
+                    gpd.datasets.get_path('naturalearth_lowres')
+            )
+        </code></pre>
+          <div>
+            <table style="font-size: large">
+              <thead>
+                <tr style="text-align: center">
+                  <th></th>
+                  <th>pop_est</th>
+                  <th>continent</th>
+                  <th>name</th>
+                  <th>iso_a3</th>
+                  <th>gdp_md_est</th>
+                  <th>geometry</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>0</th>
+                  <td>889953.0</td>
+                  <td>Oceania</td>
+                  <td>Fiji</td>
+                  <td>FJI</td>
+                  <td>5496</td>
+                  <td>MULTIPOLYGON (((180.00000 -16.06713, 180.00000...</td>
+                </tr>
+                <tr>
+                  <th>1</th>
+                  <td>58005463.0</td>
+                  <td>Africa</td>
+                  <td>Tanzania</td>
+                  <td>TZA</td>
+                  <td>63177</td>
+                  <td>POLYGON ((33.90371 -0.95000, 34.07262 -1.05982...</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>603253.0</td>
+                  <td>Africa</td>
+                  <td>W. Sahara</td>
+                  <td>ESH</td>
+                  <td>907</td>
+                  <td>POLYGON ((-8.66559 27.65643, -8.66512 27.58948...</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>37589262.0</td>
+                  <td>North America</td>
+                  <td>Canada</td>
+                  <td>CAN</td>
+                  <td>1736425</td>
+                  <td>MULTIPOLYGON (((-122.84000 49.00000, -122.9742...</td>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <td>328239523.0</td>
+                  <td>North America</td>
+                  <td>United States of America</td>
+                  <td>USA</td>
+                  <td>21433226</td>
+                  <td>MULTIPOLYGON (((-122.84000 49.00000, -120.0000...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <span>Visualize GeoSpatial data</span>
+          <pre><code data-trim>
+                world_df.plot()
+            </code></pre>
+          <img src="img/worldmap.png" alt="worldmap" />
+        </section>
+
+        <section>
+          <span>Process data using Pandas built-in functions</span>
+          <pre><code data-trim>
+            import numpy as np
+            world_df['log_gdp'] = np.log(world_df['gdp_md_est'])
+            world_df.plot("log_gdp")
+        </code></pre>
+          <img src="img/world_gpd.png" alt="world GDP" />
+        </section>
+
+        <section>
+          <div>
+            <img
+              src="https://storage.googleapis.com/lds-files/videos/countries-map-projection-new.gif"
+              alt="True country area"
+            />
+          </div>
+          <pre><code data-trim>
+            world_df = world_df.to_crs(
+                "+proj=eck4 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"
+            )
+            world_df.area
+        </code></pre>
+          <span class="text-small"
+            >https://www.learndatasci.com/tutorials/geospatial-data-python-geopandas-shapely/</span
+          >
+        </section>
+
+        <section>
+          <aside class="notes">Show first 2 links</aside>
+          <h3>Open Data Source</h3>
+          <ul>
+            <li>
+              <a
+                href="https://hub.arcgis.com/datasets/48f9af87daa241c4b267c5931ad3b226/explore?location=41.575643%2C75.588292%2C3.23"
+                >ArcGIS</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://public.opendatasoft.com/explore/dataset/us-county-boundaries/map/?disjunctive.statefp&disjunctive.countyfp&disjunctive.name&disjunctive.namelsad&disjunctive.stusab&disjunctive.state_name&location=2,40.61349,29.12694&basemap=jawg.light"
+                >Opendatasoft</a
+              >
+            </li>
+            <li>
+              <a href="https://www.census.gov/geographies/mapping-files.html"
+                >US Census</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <aside class="notes">The top three can be open by geopandas</aside>
+          <h3>Common File types</h3>
+          <ul>
+            <li>ShapeFile (.prj + .dbf + .shp + .shx)</li>
+            <li>GeoJSON</li>
+            <li>KML</li>
+            <li>GeoDatabase</li>
           </ul>
         </section>
 
@@ -132,8 +404,29 @@
         slideNumber: "c/t",
         autoAnimateDuration: 0.5,
 
+        customcontrols: {
+          controls: [
+            {
+              icon: '<i class="fa fa-pen-square"></i>',
+              title: "Toggle chalkboard (B)",
+              action: "RevealChalkboard.toggleChalkboard();",
+            },
+            {
+              icon: '<i class="fa fa-pen"></i>',
+              title: "Toggle notes canvas (C)",
+              action: "RevealChalkboard.toggleNotesCanvas();",
+            },
+          ],
+        },
+
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealChalkboard,
+          RevealCustomControls,
+        ],
       });
     </script>
   </body>
