@@ -56,8 +56,10 @@
           </aside>
           <h3>Outline for Today</h3>
           <ul>
+            <li>Spatial data</li>
             <li>Introduction to geometry in Python</li>
             <li>From geometry to spatial data</li>
+            <li style="color: gray">Putting spatial data to map in Django</li>
           </ul>
         </section>
 
@@ -72,6 +74,23 @@ conda install pyarrow
 conda install -c conda-forge geopandas
         </code></pre>
           <p>You can find commands in module 6 -> lab 6</p>
+        </section>
+
+        <section>
+          <h3>Spatial Data & Geographic Information System</h3>
+          <div class="container" style="display: flex">
+            <div class="col" style="flex: 1">
+              Tools
+              <ul>
+                <li>ArcGIS, QGIS, Google Earth</li>
+                <li>Google Map, MapBox</li>
+                <li>Python</li>
+              </ul>
+            </div>
+            <div class="col" style="flex: 1">
+              <img src="img/acre.png" alt="ACRE Map" />
+            </div>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -120,12 +139,72 @@ conda install -c conda-forge geopandas
           </svg>
         </section>
 
+        <section><h3>Geometry in action</h3></section>
+
+        <section>
+          <img
+            src="https://github.com/ag-informatics/ag-informatics-course/blob/main/module2/img/gis-3.png?raw=true"
+            alt=""
+          />
+          <div>
+            <span class="text-small"
+              >Reference: Purdue Introduction to Agricultural Informatics Module
+              2</span
+            >
+          </div>
+        </section>
+
+        <section>
+          <img
+            src="https://github.com/ag-informatics/ag-informatics-course/blob/main/modarchive/module6/img/337px-MAPS.ME_Android_App_v9.4.4_Screenshot_with_Car_Route_Built.jpg?raw=true"
+            alt=""
+            height="480"
+          />
+          <div>
+            <span class="text-small"
+              >Reference: Purdue Introduction to Agricultural Informatics Module
+              6</span
+            >
+          </div>
+        </section>
+
+        <section>
+          <img
+            src="https://github.com/ag-informatics/ag-informatics-course/blob/main/module1/img/design-granular2.png?raw=true"
+            alt=""
+          />
+          <div>
+            <span class="text-small"
+              >Reference: Purdue Introduction to Agricultural Informatics Module
+              1</span
+            >
+          </div>
+        </section>
+
         <section>
           <h3>Geometric Object In Python</h3>
           <h2>Shapely</h2>
-          <span class="text-small"
-            >https://shapely.readthedocs.io/en/stable/index.html</span
+          <p>
+            Manipulation and analysis of geometric objects in the Cartesian
+            plane
+          </p>
+          <a href="https://shapely.readthedocs.io/en/stable/index.ht"
+            ><span class="text-small">docs</span></a
           >
+        </section>
+
+        <section>
+          <img
+            src="https://raw.githubusercontent.com/ag-informatics/ag-informatics-course/main/modarchive/module6/img/ComputerGeneratedRouting.jpg"
+            height="480"
+            alt="Loading"
+          />
+          <div>
+            <span class="text-small"
+              >Reference: Purdue Introduction to Agricultural Informatics Module
+              6</span
+            >
+          </div>
         </section>
 
         <section>
@@ -154,17 +233,53 @@ polygon.contains(point_a)
 polygon.contains(line_b)</code></pre>
         </section>
 
-        <section data-auto-animate>
+        <section>
           <h3>From Geometry To GeoSpatial</h3>
-          <h2>GeoPandas</h2>
-          <span class="text-small"
-            >https://geopandas.org/en/stable/index.html</span
-          >
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <a href="https://geopy.readthedocs.io/en/stable/#">GeoPy</a>
+                </td>
+                <td>Link with map services</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://pysal.org/">PySAL</a>,
+                  <a href="https://residentmario.github.io/geoplot/index.html"
+                    >GeoPlot</a
+                  >
+                </td>
+                <td>Visualize Geospatial data</td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://pro.arcgis.com/en/pro-app/latest/arcpy/get-started/what-is-arcpy-.htm"
+                    >ArcPy</a
+                  >
+                </td>
+                <td>Working with ArcGIS</td>
+              </tr>
+              <tr>
+                <td><a href="https://gdal.org/">GDAL</a></td>
+                <td>Driver for GIS software</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://geopandas.org/en/stable/">GeoPandas</a>
+                </td>
+                <td>Pandas with GeoSpatial functionalities</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
-        <section data-auto-animate>
+        <section>
           <h2>GeoPandas</h2>
-          <span>Pandas + Shapely</span>
+          <div>
+            <span>Pandas + Shapely</span>
+          </div>
         </section>
 
         <section>
@@ -292,10 +407,14 @@ polygon.contains(line_b)</code></pre>
                 >Opendatasoft</a
               >
             </li>
+            <li><a href="https://www.indianamap.org/">Indiana Map</a></li>
             <li>
               <a href="https://www.census.gov/geographies/mapping-files.html"
                 >US Census</a
               >
+            </li>
+            <li>
+              <a href="https://freegisdata.rtwilson.com/">Free GIS Data</a>
             </li>
           </ul>
         </section>

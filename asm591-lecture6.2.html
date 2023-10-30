@@ -13,6 +13,25 @@
     <link rel="stylesheet" href="revealjs/dist/reveal.css" />
     <link rel="stylesheet" href="revealjs/dist/theme/white.css" />
 
+    <!-- Font awesome is required for the chalkboard plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css"
+    />
+    <!-- Chalkboard plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"
+    />
+
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="revealjs/plugin/highlight/monokai.css" />
     <!-- Ankita's theme overrides-->
@@ -33,9 +52,15 @@
         <section>
           <h3>Outline for Today</h3>
           <ul>
-            <li>Leaflet 101</li>
-            <li>How to create GeoJSON?</li>
+            <li style="color: gray;">Spatial data</li>
+            <li style="color: gray;">Introduction to geometry in Python</li>
+            <li style="color: gray;">From geometry to spatial data</li>
+            <li>Putting spatial data to map in Django</li>
           </ul>
+        </section>
+
+        <section>
+
         </section>
 
         <section>
@@ -131,8 +156,30 @@
         slideNumber: "c/t",
         autoAnimateDuration: 0.5,
 
+        customcontrols: {
+
+          controls: [
+            {
+              icon: '<i class="fa fa-pen-square"></i>',
+              title: "Toggle chalkboard (B)",
+              action: "RevealChalkboard.toggleChalkboard();",
+            },
+            {
+              icon: '<i class="fa fa-pen"></i>',
+              title: "Toggle notes canvas (C)",
+              action: "RevealChalkboard.toggleNotesCanvas();",
+            },
+          ],
+        },
+
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealChalkboard,
+          RevealCustomControls,
+        ],
       });
     </script>
   </body>
