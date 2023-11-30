@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Ag IoT 101: Read Soil Moisture</title>
+
+    <link rel="stylesheet" href="../revealjs/dist/reset.css" />
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css" />
+    <link rel="stylesheet" href="../revealjs/dist/theme/night.css" />
+
+    <!-- Font awesome is required for the chalkboard plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css"
+    />
+    <!-- Chalkboard plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" />
+    <!-- Ankita's theme overrides-->
+    <link rel="stylesheet" href="../asm591-styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <div class="footer">
+          Purdue Digital Agricultural Club | Tam Bureetes (tbureete@purdue.edu)
+        </div>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Introduction to IoT in Agricultural
+            Connecting Sensors to the Internet
+            
+            #### Purdue Digital Agricultural Club Workshop
+            December 04<sup>th</sup>, 2023
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Outline for today
+            <ul>
+              <li>Internet in nutshell</li>
+              <li>Backbone of the internet: HTTP</li>
+              <li>IoT protocol: MQTT</li>
+              <li>Basic dashboard</li>
+            </ul>
+          </textarea>
+        </section>
+
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Next 
+            [Dashboard](https://github.com/DAC-Of-Purdue/iot-dashboard)
+            <ul>
+              <li>Record time series data</li>
+              <li>Visualization</li>
+              <li>Action</li>
+            </ul>
+          </textarea>
+        </section>
+
+        <section>
+          <h3>License</h3>
+
+          <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" />
+          <p class="text-small align-left">
+            This course is licensed under a Creative Commons
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >Attribution-NonCommercial-ShareAlike 4.0 International (CC
+              BY-NC-SA 4.0)</a
+            >
+            license. This is a human-readable summary of (and not a substitute
+            for) the
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >license</a
+            >. Official translations of this license are available in other
+            languages.
+          </p>
+
+          <p class="text-small align-left">You are free to:</p>
+          <ul class="text-small">
+            <li>
+              Share — copy and redistribute the material in any medium or format
+            </li>
+            <li>Adapt — remix, transform, and build upon the material</li>
+          </ul>
+
+          <p class="text-small align-left">Under the following terms:</p>
+          <ul class="text-small">
+            <li>
+              Attribution — You must give appropriate credit, provide a link to
+              the license, and indicate if changes were made. You may do so in
+              any reasonable manner, but not in any way that suggests the
+              licensor endorses you or your use.
+            </li>
+            <li>
+              NonCommercial — You may not use the material for commercial
+              purposes.
+            </li>
+            <li>
+              ShareAlike — If you remix, transform, or build upon the material,
+              you must distribute your contributions under the same license as
+              the original.
+            </li>
+            <li>
+              No additional restrictions — You may not apply legal terms or
+              technological measures that legally restrict others from doing
+              anything the license permits.
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs/plugin/zoom/zoom.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        autoAnimateDuration: 0.5,
+
+        customcontrols: {
+          controls: [
+            {
+              icon: '<i class="fa fa-pen-square"></i>',
+              title: "Toggle chalkboard (B)",
+              action: "RevealChalkboard.toggleChalkboard();",
+            },
+            {
+              icon: '<i class="fa fa-pen"></i>',
+              title: "Toggle notes canvas (C)",
+              action: "RevealChalkboard.toggleNotesCanvas();",
+            },
+          ],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealChalkboard,
+          RevealCustomControls,
+          RevealZoom,
+        ],
+      });
+    </script>
+  </body>
+</html>
