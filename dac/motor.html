@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Scarecrow Bot Workshop: Motor</title>
+
+    <link rel="stylesheet" href="../revealjs/dist/reset.css" />
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css" />
+    <link rel="stylesheet" href="../revealjs/dist/theme/night.css" />
+
+    <!-- Font awesome is required for the chalkboard plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css"
+    />
+    <!-- Chalkboard plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" />
+    <!-- Ankita's theme overrides-->
+    <link rel="stylesheet" href="../asm591-styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <div class="footer">
+          Purdue Digital Agricultural Club | Tam Bureetes (tbureete@purdue.edu)
+        </div>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Scarecrow Bot Workshop
+            Introduction to Electrical Motors
+            #### Purdue Digital Agricultural Club
+            February 14<sup>th</sup>, 2024
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Outline for today
+            <ul>
+              <li>Physics behind the scene</li>
+              <li>Type of motors</li>
+              <li>Motor control</li>
+            </ul>
+          </textarea>
+        </section>
+
+        <section>
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/CWulQ1ZSE3c?si=Abr0BoiVVxFCPBiY"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </section>
+
+        <section>
+          <h4>Common Types of Motor</h4>
+          <img src="../img/svg/motor-tree.svg" />
+        </section>
+
+        <section>
+          <h4>Brushed DC Motor</h4>
+          <img
+            src="https://www.electronicwings.com/storage/PlatformSection/TopicContent/133/description/DC_Motor_Construction.png"
+            alt="dc-motor"
+            height="480px"
+          />
+          <p class="text-small">
+            Reference:
+            <a href="https://www.electronicwings.com/sensors-modules/dc-motor"
+              >www.electronicwings.com</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h4>Brushless DC Motor (BLDC)</h4>
+          <img
+            src="https://www.iqsdirectory.com/articles/electric-motor/dc-motors/diagram-of-a-brushless-motor.jpg"
+            alt="BLDC"
+            height="480px"
+          />
+          <p class="text-small">
+            Reference:
+            <a
+              href="https://www.iqsdirectory.com/articles/electric-motor/dc-motors.html"
+              >www.iqsdirectory.com</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h4>Stepper Motor</h4>
+          <img
+            src="https://content.instructables.com/FH2/O7RU/IB22QR8X/FH2O7RUIB22QR8X.jpg?auto=webp&frame=1&fit=bounds&md=07d796276f8177254f3928cdd85d9fa9"
+            alt="Stepper"
+            height="480px"
+          />
+          <p class="text-small">
+            Reference:
+            <a
+              href="https://www.instructables.com/Controlling-a-Stepper-Motor-with-an-Arduino/"
+              >www.instructables.com</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h4>Stepper Motor</h4>
+          <img
+            src="https://www.globalspec.com/pix/ProductFinderDetail/ServoMotorWorkingPrinciples/ServoMotorPrinciple.jpg"
+            alt="Servo"
+            height="480px"
+          />
+          <p class="text-small">
+            Reference:
+            <a
+              href="https://www.globalspec.com/pfdetail/motors/servo-motor-working-principle"
+              >www.globalspec.com</a
+            >
+          </p>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ### Motor Control Objective
+
+          `$$ \tau = I \alpha \propto i$$`
+
+          `$$ \alpha = \frac{d\omega}{dt} = \frac{d^2\theta}{dt^2} $$`
+          </textarea>
+        </section>
+
+        <section>
+          <h4>H-Bridge</h4>
+          <img
+            src="https://www.eleccircuit.com/wp-content/uploads/2013/12/1-all-switch-off-all-motor-not-works-480x600.png"
+            alt="H-Bridge"
+            height="480px"
+          />
+          <p class="text-small">
+            Reference:
+            <a
+              href="https://www.eleccircuit.com/basic-h-bridge-motor-driver-by-bipolar-transistor/"
+              >www.eleccircuit.com</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h4>H-Bridge Circuit</h4>
+          <img
+            src="https://newscrewdriver.files.wordpress.com/2021/01/l298n-module-schematic-16x9-1.jpg?w=772"
+            alt="H-Bridge circuit"
+            height="480px"
+          />
+          <p class="text-small">
+            Reference:
+            <a
+              href="https://newscrewdriver.com/2021/01/28/circuit-schematic-of-generic-l298n-driver-board/"
+              >www.newscrewdriver.com</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h4>H-Bridge Module</h4>
+          <img
+            src="https://cdn.hibit.dev/images/posts/2023/schemas/l298n_pinout.png"
+            alt="H-Bridge circuit"
+            height="480px"
+          />
+          <p class="text-small">
+            Reference:
+            <a
+              href="https://www.hibit.dev/posts/89/how-to-use-the-l298n-motor-driver-module"
+              >www.hibit.dev</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section>
+          <h3>License</h3>
+
+          <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" />
+          <p class="text-small align-left">
+            This course is licensed under a Creative Commons
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >Attribution-NonCommercial-ShareAlike 4.0 International (CC
+              BY-NC-SA 4.0)</a
+            >
+            license. This is a human-readable summary of (and not a substitute
+            for) the
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >license</a
+            >. Official translations of this license are available in other
+            languages.
+          </p>
+
+          <p class="text-small align-left">You are free to:</p>
+          <ul class="text-small">
+            <li>
+              Share — copy and redistribute the material in any medium or format
+            </li>
+            <li>Adapt — remix, transform, and build upon the material</li>
+          </ul>
+
+          <p class="text-small align-left">Under the following terms:</p>
+          <ul class="text-small">
+            <li>
+              Attribution — You must give appropriate credit, provide a link to
+              the license, and indicate if changes were made. You may do so in
+              any reasonable manner, but not in any way that suggests the
+              licensor endorses you or your use.
+            </li>
+            <li>
+              NonCommercial — You may not use the material for commercial
+              purposes.
+            </li>
+            <li>
+              ShareAlike — If you remix, transform, or build upon the material,
+              you must distribute your contributions under the same license as
+              the original.
+            </li>
+            <li>
+              No additional restrictions — You may not apply legal terms or
+              technological measures that legally restrict others from doing
+              anything the license permits.
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs/plugin/zoom/zoom.js"></script>
+    <script src="../revealjs/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        autoAnimateDuration: 0.5,
+        customcontrols: {
+          controls: [
+            {
+              icon: '<i class="fa fa-pen-square"></i>',
+              title: "Toggle chalkboard (B)",
+              action: "RevealChalkboard.toggleChalkboard();",
+            },
+            {
+              icon: '<i class="fa fa-pen"></i>',
+              title: "Toggle notes canvas (C)",
+              action: "RevealChalkboard.toggleNotesCanvas();",
+            },
+          ],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealChalkboard,
+          RevealCustomControls,
+          RevealZoom,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>

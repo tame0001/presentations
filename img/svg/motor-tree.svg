@@ -1,0 +1,64 @@
+<svg width="3083" height="1955" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    overflow="hidden">
+    <defs>
+        <clipPath id="clip0">
+            <rect x="692" y="260" width="3083" height="1955" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#clip0)" transform="translate(-692 -260)">
+        <path
+            d="M734.5 1084C734.5 1062.74 751.737 1045.5 773 1045.5L1468 1045.5C1489.26 1045.5 1506.5 1062.74 1506.5 1084L1506.5 1392C1506.5 1413.26 1489.26 1430.5 1468 1430.5L773 1430.5C751.737 1430.5 734.5 1413.26 734.5 1392Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#ED7D31" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 829.747 1300)">Motor</text>
+        <path d="M1505.62 1237.5 1814.24 793.871" stroke="#FFC000" stroke-width="4.58333" stroke-miterlimit="8"
+            fill="none" fill-rule="evenodd" />
+        <path
+            d="M1814.5 640.1C1814.5 618.782 1831.78 601.5 1853.1 601.5L2547.9 601.5C2569.22 601.5 2586.5 618.782 2586.5 640.1L2586.5 948.9C2586.5 970.218 2569.22 987.5 2547.9 987.5L1853.1 987.5C1831.78 987.5 1814.5 970.218 1814.5 948.9Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#FFC000" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 2071.05 856)">DC</text>
+        <path d="M2585.76 793.871 2894.37 572.057" stroke="#5B9BD5" stroke-width="4.58333" stroke-miterlimit="8"
+            fill="none" fill-rule="evenodd" />
+        <path
+            d="M2894.5 418.1C2894.5 396.782 2911.78 379.5 2933.1 379.5L3627.9 379.5C3649.22 379.5 3666.5 396.782 3666.5 418.1L3666.5 726.899C3666.5 748.217 3649.22 765.499 3627.9 765.499L2933.1 765.499C2911.78 765.499 2894.5 748.217 2894.5 726.899Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#5B9BD5" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 3017.98 635)">Brush</text>
+        <path d="M2585.76 793.871 2894.37 1015.68" stroke="#5B9BD5" stroke-width="4.58333" stroke-miterlimit="8"
+            fill="none" fill-rule="evenodd" />
+        <path
+            d="M2894.5 862.1C2894.5 840.782 2911.78 823.5 2933.1 823.5L3627.9 823.5C3649.22 823.5 3666.5 840.782 3666.5 862.1L3666.5 1170.9C3666.5 1192.22 3649.22 1209.5 3627.9 1209.5L2933.1 1209.5C2911.78 1209.5 2894.5 1192.22 2894.5 1170.9Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#5B9BD5" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 3042.89 1078)">BLDC</text>
+        <path d="M1506.5 1237.91 1815.11 1237.91" stroke="#FFC000" stroke-width="4.58333" stroke-miterlimit="8"
+            fill="none" fill-rule="evenodd" />
+        <path
+            d="M1814.5 1084C1814.5 1062.74 1831.74 1045.5 1853 1045.5L2548 1045.5C2569.26 1045.5 2586.5 1062.74 2586.5 1084L2586.5 1392C2586.5 1413.26 2569.26 1430.5 2548 1430.5L1853 1430.5C1831.74 1430.5 1814.5 1413.26 1814.5 1392Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#FFC000" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 2075.99 1300)">AC</text>
+        <path d="M1505.62 1237.5 1814.24 1681.13" stroke="#FFC000" stroke-width="4.58333" stroke-miterlimit="8"
+            fill="none" fill-rule="evenodd" />
+        <path
+            d="M1814.5 1527.1C1814.5 1505.78 1831.78 1488.5 1853.1 1488.5L2547.9 1488.5C2569.22 1488.5 2586.5 1505.78 2586.5 1527.1L2586.5 1835.9C2586.5 1857.22 2569.22 1874.5 2547.9 1874.5L1853.1 1874.5C1831.78 1874.5 1814.5 1857.22 1814.5 1835.9Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#FFC000" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 1880.72 1744)">Special</text>
+        <path d="M2585.76 1681.13 2894.37 1459.31" stroke="#5B9BD5" stroke-width="4.58333" stroke-miterlimit="8"
+            fill="none" fill-rule="evenodd" />
+        <path
+            d="M2894.5 1305.1C2894.5 1283.78 2911.78 1266.5 2933.1 1266.5L3627.9 1266.5C3649.22 1266.5 3666.5 1283.78 3666.5 1305.1L3666.5 1613.9C3666.5 1635.22 3649.22 1652.5 3627.9 1652.5L2933.1 1652.5C2911.78 1652.5 2894.5 1635.22 2894.5 1613.9Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#5B9BD5" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 2923.23 1522)">Stepper</text>
+        <path d="M2585.76 1681.13 2894.37 1902.94" stroke="#5B9BD5" stroke-width="4.58333" stroke-miterlimit="8"
+            fill="none" fill-rule="evenodd" />
+        <path
+            d="M2894.5 1749.1C2894.5 1727.78 2911.78 1710.5 2933.1 1710.5L3627.9 1710.5C3649.22 1710.5 3666.5 1727.78 3666.5 1749.1L3666.5 2057.9C3666.5 2079.22 3649.22 2096.5 3627.9 2096.5L2933.1 2096.5C2911.78 2096.5 2894.5 2079.22 2894.5 2057.9Z"
+            stroke="#FFFFFF" stroke-width="4.58333" stroke-miterlimit="8" fill="#5B9BD5" fill-rule="evenodd" /><text
+            fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="225"
+            transform="matrix(1 0 0 1 3023.59 1966)">Servo</text>
+    </g>
+</svg>
