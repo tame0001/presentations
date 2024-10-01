@@ -6,6 +6,7 @@
     "microcontroller",
     "MQTTX",
     "Pinout",
-    "Reflectometry"
-]
+    "Reflectometry",
+    "wokwi"
+  ]
 }
