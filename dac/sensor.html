@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Scarecrow Bot Workshop: Motor</title>
+
+    <link rel="stylesheet" href="../revealjs/dist/reset.css" />
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css" />
+    <link rel="stylesheet" href="../revealjs/dist/theme/night.css" />
+
+    <!-- Font awesome is required for the chalkboard plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css"
+    />
+    <!-- Chalkboard plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" />
+    <!-- Ankita's ASM532 theme overrides-->
+    <link rel="stylesheet" href="../asm591-styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <div class="footer">
+          Purdue Digital Agricultural Club | Tam Bureetes (tbureete@purdue.edu)
+        </div>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### How to CHOOSE and USE SENSORS
+            #### Purdue Digital Agricultural Club
+            October 01<sup>st</sup>, 2024
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Outline for today
+            <ul>
+              <li>Overview</li>
+              <li>Type of Sensors</li>
+              <li>Hand-on</li>
+            </ul>
+          </textarea>
+        </section>
+
+        <section>
+          <img src="../img/svg/control-system.svg" alt="Control System" />
+        </section>
+
+        <section>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/nd2Ii4OGQ4k?si=i-bSDGfc3wkiKXwH"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </section>
+
+        <section>
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVONJugE7QIGoYyWiTn_dC0uKHRd1BKIGsu7OwdWKaQr51Nqiu343UlHwIF9TbYNXrHW709nxHIWpc4FoftXp3xtStNXuAPqNKiW7VF4oPfJZoZ-PRf6cD-uXSYyVuJzIttt3oFFUbXyDB/s320/25NC+Locomotive+7.jpg"
+            alt="Boiler control"
+            width="80%"
+          />
+          <p class="text-small">
+            Reference:
+            <a
+              href="https://coismeyer.blogspot.com/2012/09/steam-locomotive-cab.html"
+              >https://coismeyer.blogspot.com</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h3>How to choose Sensors?</h3>
+          <ul>
+            <li>What do you want to measure?</li>
+            <li>What is the range of the measurement?</li>
+            <li>What is the accuracy required?</li>
+            <li>What is the resolution required?</li>
+            <li>What is the response time required?</li>
+            <li>What is the cost?</li>
+            <li><strong>What are connectives/protocols?</strong></li>
+            <li>What is the energy consumption?</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="../img/svg/protocol.svg" alt="Communication protocol" />
+        </section>
+
+        <section>
+          <h3>Industrial Sensors</h3>
+          <ul>
+            <li>
+              Pressure gauge (<a
+                href="https://www.amazon.com/Measureman-Glycerin-Pressure-0-300psi-Stainless/dp/B07ZHD65RD?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&smid=A1U0GG705VIV5P&th=1"
+                >1</a
+              >) (<a
+                href="https://www.amazon.com/Measureman-Digital-Pressure-0-3000psi-Accuracy/dp/B07Z9RQQR3?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1U0GG705VIV5P"
+                >2</a
+              >) (<a
+                href="https://www.omega.com/en-us/pressure-measurement/pressure-gauges/digital-pressure-gauges/p/Digimag-Pressure-Gauge"
+                >3</a
+              >)
+            </li>
+            <li>
+              Flowmeter (<a
+                href="https://www.amazon.com/Nxtop-0-1-1GPM-0-5-4LPM-Flowmeter-Instrument/dp/B07DB82BWX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AD07LOJGDYC34"
+                >1</a
+              >) (<a
+                href="https://www.homedepot.com/p/Cubilan-Water-Flow-Meter-with-Brass-Inlet-Metal-Thread-Measure-Gallon-Liter-Consumption-and-Flow-Rate-B0BL37TN96/326052455?source=shoppingads&locale=en-US"
+                >2</a
+              >) (<a
+                href="https://shopclamponflow.com/product/lorric-fu-es-quickclamp-ultrasonic-flow-meter/"
+                >3</a
+              >)
+            </li>
+            <li>
+              PH sensor (<a
+                href="https://www.amazon.com/Aenncci-Moisture-Fertility-Tester-Outdoor/dp/B0CZNNCSBB/ref=pd_ci_mcx_pspc_dp_2_t_3?pd_rd_w=Mg7lO&content-id=amzn1.sym.2dfc1605-9ad4-4767-b699-ffe3b61e0dc9&pf_rd_p=2dfc1605-9ad4-4767-b699-ffe3b61e0dc9&pf_rd_r=VG16B2W7N4TGXW8CQGRS&pd_rd_wg=GRE8n&pd_rd_r=480fb8e5-8bda-4ada-87a6-aa1f96da1ed9&pd_rd_i=B0CZNNCSBB&th=1"
+                >1</a
+              >) (<a
+                href="https://milwaukeeinstruments.com/milwaukee-mw101-soil-pro-ph-meter/"
+                >2</a
+              >) (<a href="https://www.dfrobot.com/product-1782.html">3</a>)
+            </li>
+            <li>
+              Thermometer (<a
+                href="https://www.homedepot.com/p/ThermoPro-TP49W-Indoor-thermometer-Humidity-Temperature-Gauge-Monitor-Meter-Hygrometer-TP49W/314138396?source=shoppingads&locale=en-US"
+                >1</a
+              >) (<a href="https://learn.adafruit.com/dht/overview">2</a>) (<a
+                href="https://www.ti.com/sensors/temperature-sensors/overview.html"
+                >3</a
+              >)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Hand-on</h2>
+          <h4>Go to <a href="http://www.wokwi.com">www.wokwi.com</a></h4>
+        </section>
+
+        <section>
+          <h3>Controller Comparison</h3>
+          <table style="font-size: x-large">
+            <thead>
+              <tr>
+                <th>Controller</th>
+                <th>Ecosystem</th>
+                <th>Learning Curve</th>
+                <th>Cost</th>
+                <th>Connectivity</th>
+                <th>Performance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Arduino</td>
+                <td>Arduino IDE + MicroPython</td>
+                <td>Easy</td>
+                <td>Cheap</td>
+                <td>USB</td>
+                <td>Low</td>
+              </tr>
+              <tr>
+                <td>ESP32</td>
+                <td>Arduino IDE + ESP-IDF + MicroPython + Rust</td>
+                <td>Easy</td>
+                <td>Cheap</td>
+                <td>USB + Bluetooth + Wi-Fi</td>
+                <td>Decent</td>
+              </tr>
+              <tr>
+                <td>STM32</td>
+                <td>STM32Cube</td>
+                <td>Hard</td>
+                <td>Very cheap</td>
+                <td>Multiple options</td>
+                <td>Decent</td>
+              </tr>
+              <tr>
+                <td>Raspberry Pi</td>
+                <td>Linux</td>
+                <td>Easy</td>
+                <td>Quite expensive</td>
+                <td>USB + Ethernet + Bluetooth + Wi-Fi</td>
+                <td>Powerful</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section>
+          <h3>License</h3>
+
+          <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" />
+          <p class="text-small align-left">
+            This course is licensed under a Creative Commons
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >Attribution-NonCommercial-ShareAlike 4.0 International (CC
+              BY-NC-SA 4.0)</a
+            >
+            license. This is a human-readable summary of (and not a substitute
+            for) the
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >license</a
+            >. Official translations of this license are available in other
+            languages.
+          </p>
+
+          <p class="text-small align-left">You are free to:</p>
+          <ul class="text-small">
+            <li>
+              Share — copy and redistribute the material in any medium or format
+            </li>
+            <li>Adapt — remix, transform, and build upon the material</li>
+          </ul>
+
+          <p class="text-small align-left">Under the following terms:</p>
+          <ul class="text-small">
+            <li>
+              Attribution — You must give appropriate credit, provide a link to
+              the license, and indicate if changes were made. You may do so in
+              any reasonable manner, but not in any way that suggests the
+              licensor endorses you or your use.
+            </li>
+            <li>
+              NonCommercial — You may not use the material for commercial
+              purposes.
+            </li>
+            <li>
+              ShareAlike — If you remix, transform, or build upon the material,
+              you must distribute your contributions under the same license as
+              the original.
+            </li>
+            <li>
+              No additional restrictions — You may not apply legal terms or
+              technological measures that legally restrict others from doing
+              anything the license permits.
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs/plugin/zoom/zoom.js"></script>
+    <script src="../revealjs/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        autoAnimateDuration: 0.5,
+        customcontrols: {
+          controls: [
+            {
+              icon: '<i class="fa fa-pen-square"></i>',
+              title: "Toggle chalkboard (B)",
+              action: "RevealChalkboard.toggleChalkboard();",
+            },
+            {
+              icon: '<i class="fa fa-pen"></i>',
+              title: "Toggle notes canvas (C)",
+              action: "RevealChalkboard.toggleNotesCanvas();",
+            },
+          ],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealChalkboard,
+          RevealCustomControls,
+          RevealZoom,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
