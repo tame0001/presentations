@@ -9,15 +9,32 @@
 
     <title>Ag IoT 101: MQTT Protocol</title>
 
-    <link rel="stylesheet" href="../revealjs/dist/reset.css" />
-    <link rel="stylesheet" href="../revealjs/dist/reveal.css" />
-    <link rel="stylesheet" href="../revealjs/dist/theme/night.css" />
-
-    <!-- Font awesome is required for the chalkboard plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css"
+    />
+    <!-- Ankita's ASM532 theme overrides-->
+    <link rel="stylesheet" href="../asm591-styles.css" />
+
+    <!-- Font awesome is required for the chalkboard plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <!-- Custom controls plugin is used to for opening and closing annotation modes. -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
@@ -31,11 +48,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"
     />
-
-    <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" />
-    <!-- Ankita's theme overrides-->
-    <link rel="stylesheet" href="../asm591-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css"
+    />
   </head>
   <body>
     <div class="reveal">
@@ -242,11 +258,11 @@
       </div>
     </div>
 
-    <script src="../revealjs/dist/reveal.js"></script>
-    <script src="../revealjs/plugin/notes/notes.js"></script>
-    <script src="../revealjs/plugin/markdown/markdown.js"></script>
-    <script src="../revealjs/plugin/highlight/highlight.js"></script>
-    <script src="../revealjs/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -256,7 +272,6 @@
         hash: true,
         slideNumber: "c/t",
         autoAnimateDuration: 0.5,
-
         customcontrols: {
           controls: [
             {
@@ -279,7 +294,6 @@
           RevealNotes,
           RevealChalkboard,
           RevealCustomControls,
-          RevealZoom,
         ],
       });
     </script>
