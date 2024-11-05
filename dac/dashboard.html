@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>Ag IoT 101: MQTT Protocol</title>
+    <title>Making Dashboard</title>
 
     <link
       rel="stylesheet"
@@ -62,11 +62,11 @@
 
         <section data-markdown>
           <textarea data-template>
-            ### Introduction to IoT in Agricultural
-            Connecting Sensors to the Internet
+            #### Introduction to IoT in Agricultural
+            ### Sensor Connectivity and Dashboard
             
-            #### Purdue Digital Agricultural Club Workshop
-            December 04<sup>th</sup>, 2023
+            ##### Purdue Digital Agricultural Club
+            November 05<sup>th</sup>, 2024
           </textarea>
         </section>
 
@@ -81,44 +81,66 @@
           </textarea>
         </section>
 
-        <section data-markdown>
-          <textarea data-template>
-            ## Internet in nutshell 
-            
+        <section>
+          <h3>Internet in nutshell</h3>
+          <p>
             A network of computers or electronics
-            **devices** that **communicate** to each others
-          </textarea>
+            <span class="fragment highlight-red" data-fragment-index="1"
+              >devices</span
+            >
+            that
+            <span class="fragment highlight-red" data-fragment-index="1"
+              >communicate</span
+            >
+            to each others
+          </p>
         </section>
 
         <section data-markdown>
           <textarea data-template>
             ### Key Vocabularies
-            <ul>
-              <li>IP Address</li>
-              <li>Port</li>
-              <li>Protocol</li>
-            </ul>
+            | Internet Protocol | Sending Mail |
+            |:-----------------:|:------------:|
+            | IP Address        | Address      |
+            | Port              | Mailbox      |
+            | Protocol          | Post, Telegram, etc  |
+
           </textarea>
+        </section>
+
+        <section>
+          <h3>
+            <span style="color: red">H</span>yper<span style="color: red"
+              >T</span
+            >ext <span style="color: red">T</span>ransfer
+            <span style="color: red">P</span>rotocol
+          </h3>
+          <p>
+            A protocol that defines how messages are formatted and transmitted
+            over the internet
+          </p>
+
+          <h3 class="fragment" data-fragment-index="1">
+            <span style="color: red">H</span>yper<span style="color: red"
+              >T</span
+            >ext <span style="color: red">M</span>arkup
+            <span style="color: red">L</span>anguage
+          </h3>
+          <p class="fragment" data-fragment-index="1">
+            A language that defines the structure of web pages
+          </p>
         </section>
 
         <section data-markdown>
           <textarea data-template>
-            ### Hypertext Transfer Protocol (HTTP)
-            
-            ### Hypertext Markup Language (HTML)
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-           
+           ### HTML Example
             ```
             <!DOCTYPE html>
             <head>
                 <title>Hello</title>
             </head>
             <body>
-                Hello World
+                <h1>Hello World</h1>
             </body>
             ```
           </textarea>
@@ -126,29 +148,75 @@
 
         <section data-markdown>
           <textarea data-template>
-            ### HTTP: Client sends request(s) to the server
-            <ul>
-              <li>GET</li>
-              <li>POST</li>
-              <li>DELETE</li>
-              <li>many more</li>
-            </ul>
+            ### HTTP work paradigm
+            #### A client sends request(s) to the server
+            | Request Type | What It Does |
+            |:------------:|:------------:|
+            | GET          | Retrieve data|
+            | POST         | Send data    |
+            | DELETE       | Delete data  |
+            | many more    |              |
           </textarea>
+        </section>
+
+        <section>
+          <h2>Introduction to</h2>
+          <h3>
+            <span style="color: red">M</span>essage
+            <span style="color: red">Q</span>ueuing
+            <span style="color: red">T</span>elemetry
+            <span style="color: red">T</span>ransport
+          </h3>
+          <p class="fragment">
+            an
+            <span class="fragment highlight-green">extremely lightweight</span>
+            <span class="fragment highlight-green">publish/subscribe</span>
+            messaging transport that is ideal for connecting remote devices with
+            a
+            <span class="fragment highlight-green">small code footprint</span>
+            and
+            <span class="fragment highlight-green"
+              >minimal network bandwidth</span
+            >
+          </p>
+        </section>
+
+        <section>
+          <h3>HTTP vs MQTT</h3>
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: center">HTTP</th>
+                <th style="text-align: center">MQTT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center">Reliable</td>
+                <td style="text-align: center">Lightweight</td>
+              </tr>
+              <tr>
+                <td style="text-align: center">
+                  Comprehensive Instruction Set
+                </td>
+                <td style="text-align: center">Small Footprint</td>
+              </tr>
+              <tr>
+                <td style="text-align: center">Server - Client</td>
+                <td style="text-align: center">Broker - Client</td>
+              </tr>
+              <tr>
+                <td style="text-align: center">Sending Requests</td>
+                <td style="text-align: center">Publish - Subscribe</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         <section data-markdown>
           <textarea data-template>
-            ### Message Queuing Telemetry Transport (MQTT)
-            <ul>
-              <li>Really lightweight</li>
-              <li>Publish - Subscribe</li>
-              <li>Topic - Broker</li>
-            </ul>
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
+            ### MQTT Example with Arduino
+            
             ```c++ [1|2-5|8-13|15-17|19-22]
             #include "EspMQTTClient.h"
             EspMQTTClient client(
@@ -173,22 +241,21 @@
               delay(2000);
             }
             ```
+            Also work with [Python](https://pypi.org/project/paho-mqtt/), [JavaScript](https://github.com/mqttjs/MQTT.js), [etc](https://mqtt.org/software/).
           </textarea>
         </section>
 
         <section data-markdown>
           <textarea data-template>
             ### Receiving MQTT messages
-            <ul>
-              <li>MQTTX - https://mqttx.app/</li>
-              <li>MQTT Explorer - https://mqtt-explorer.com/</li>
-              <li>NodeRED - https://nodered.org/</li>
-            </ul>
-          </textarea>
-        </section>
+            | Method | Description |
+            |:------:|:------------|
+            | Write a client | A little bit hard to start, but sky is the limit |
+            | MQTTX | A GUI tool to subscribe and publish messages |
+            | MQTT Explorer | Like MQTTX but minimal |
+            | Node-RED | Low-code programming tool |
 
-        <section>
-          <h3>Questions?</h3>
+          </textarea>
         </section>
 
         <section data-markdown>
@@ -201,6 +268,10 @@
               <li>Action</li>
             </ul>
           </textarea>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
         </section>
 
         <section>
