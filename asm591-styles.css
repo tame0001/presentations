@@ -102,6 +102,10 @@ td{
     color: lightsteelblue;
   }
 
+.reveal > .overlay {
+    backdrop-filter: unset!important;
+}
+
 
 @media (min-width: px){
     
