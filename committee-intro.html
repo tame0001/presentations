@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Making Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css"
+    />
+    <!-- Ankita's ASM532 theme overrides-->
+    <link rel="stylesheet" href="../asm591-styles.css" />
+
+    <!-- Font awesome is required for the chalkboard plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css"
+    />
+    <!-- Chalkboard plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <div class="footer">
+          Purdue Digital Agricultural Club | Tam Bureetes (tbureete@purdue.edu)
+        </div>
+
+        <section data-markdown>
+          <textarea data-template>
+            #### Introduction to IoT in Agricultural
+            ### Sensor Connectivity and Dashboard
+            
+            ##### Purdue Digital Agricultural Club
+            November 05<sup>th</sup>, 2024
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Outline for today
+            <ul>
+              <li>Internet in nutshell</li>
+              <li>IoT protocol: MQTT</li>
+              <li>Basic dashboard</li>
+            </ul>
+          </textarea>
+        </section>
+
+        <section>
+          <h3>Internet in nutshell</h3>
+          <p>
+            A network of computers or electronics
+            <span class="fragment highlight-red" data-fragment-index="1"
+              >devices</span
+            >
+            that
+            <span class="fragment highlight-red" data-fragment-index="1"
+              >communicate</span
+            >
+            to each others
+          </p>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Key Vocabularies
+            | Internet Protocol | Sending Mail |
+            |:-----------------:|:------------:|
+            | IP Address        | Address      |
+            | Port              | Mailbox      |
+            | Protocol          | Post, Telegram, etc  |
+
+          </textarea>
+        </section>
+
+        <section>
+          <h3>
+            <span style="color: red">H</span>yper<span style="color: red"
+              >T</span
+            >ext <span style="color: red">T</span>ransfer
+            <span style="color: red">P</span>rotocol
+          </h3>
+          <p>
+            A protocol that defines how messages are formatted and transmitted
+            over the internet
+          </p>
+
+          <h3 class="fragment" data-fragment-index="1">
+            <span style="color: red">H</span>yper<span style="color: red"
+              >T</span
+            >ext <span style="color: red">M</span>arkup
+            <span style="color: red">L</span>anguage
+          </h3>
+          <p class="fragment" data-fragment-index="1">
+            A language that defines the structure of web pages
+          </p>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+           ### HTML Example
+            ```
+            <!DOCTYPE html>
+            <head>
+                <title>Hello</title>
+            </head>
+            <body>
+                <h1>Hello World</h1>
+            </body>
+            ```
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### HTTP work paradigm
+            #### A client sends request(s) to the server
+            | Request Type | What It Does |
+            |:------------:|:------------:|
+            | GET          | Retrieve data|
+            | POST         | Send data    |
+            | DELETE       | Delete data  |
+            | many more    |              |
+          </textarea>
+        </section>
+
+        <section>
+          <h2>Introduction to</h2>
+          <h3>
+            <span style="color: red">M</span>essage
+            <span style="color: red">Q</span>ueuing
+            <span style="color: red">T</span>elemetry
+            <span style="color: red">T</span>ransport
+          </h3>
+          <p class="fragment">
+            an
+            <span class="fragment highlight-green">extremely lightweight</span>
+            <span class="fragment highlight-green">publish/subscribe</span>
+            messaging transport that is ideal for connecting remote devices with
+            a
+            <span class="fragment highlight-green">small code footprint</span>
+            and
+            <span class="fragment highlight-green"
+              >minimal network bandwidth</span
+            >
+          </p>
+        </section>
+
+        <section>
+          <h3>HTTP vs MQTT</h3>
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: center">HTTP</th>
+                <th style="text-align: center">MQTT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center">Reliable</td>
+                <td style="text-align: center">Lightweight</td>
+              </tr>
+              <tr>
+                <td style="text-align: center">
+                  Comprehensive Instruction Set
+                </td>
+                <td style="text-align: center">Small Footprint</td>
+              </tr>
+              <tr>
+                <td style="text-align: center">Server - Client</td>
+                <td style="text-align: center">Broker - Client</td>
+              </tr>
+              <tr>
+                <td style="text-align: center">Sending Requests</td>
+                <td style="text-align: center">Publish - Subscribe</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### MQTT Example with Arduino
+            
+            ```c++ [1|2-5|8-13|15-17|19-22]
+            #include "EspMQTTClient.h"
+            EspMQTTClient client(
+              "DigitalAGClub",  // WiFi SSID at the maker space
+              "username",       // WiFi password
+              "66.253.158.154"  // MQTT Broker server IP
+            );
+
+            void onConnectionEstablished()
+            // This function activate 
+            // when connection is established with the broker
+            {
+              Serial.printf("Connection Established\n");
+            }
+
+            void setup() {
+              Serial.begin(9600);
+            }
+
+            void loop() {
+              client.publish("DAC/demo", "Hello");
+              delay(2000);
+            }
+            ```
+            Also work with [Python](https://pypi.org/project/paho-mqtt/), [JavaScript](https://github.com/mqttjs/MQTT.js), [etc](https://mqtt.org/software/).
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Receiving MQTT messages
+            | Method | Description |
+            |:------:|:------------|
+            | Write a client | A little bit hard to start, but sky is the limit |
+            | MQTTX | A GUI tool to subscribe and publish messages |
+            | MQTT Explorer | Like MQTTX but minimal |
+            | Node-RED | Low-code programming tool |
+
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Introduction to Node-RED
+          </textarea>
+        </section>
+
+        <section>
+          <h3>What is Node-RED and Why using it?</h3>
+          <p>
+            A flow-based development tool for visual programming developed
+            originally by IBM for wiring together hardware devices, APIs, and
+            online services as part of the Internet of Things.
+          </p>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Python vs JavaScript
+            | Python | JavaScript |
+            |:------:|:----------:|
+            | Easy to learn | Easy to learn |
+            | Script-language | Script-language |
+            | Base-on C | Base-on C |
+            | [Python Interpreter](https://www.python.org/downloads/) | [NodeJS](https://nodejs.org/en/download/package-manager), [Deno](https://deno.com/), [Bun](https://bun.sh/) |
+            | [PyPi](https://pypi.org/) | [NPM](https://www.npmjs.com/) |
+
+            JavaScript is the most used computer language in the world. Python is number two.
+          </textarea>
+        </section>
+
+        <section>
+          <p>
+            <span style="color: red">Node-RED</span> is built on NodeJS
+            (JavaScript) and is available as a package on NPM.
+          </p>
+          <h4>Installation</h4>
+          <p>
+            Easy to install by using
+            <a href="https://nodered.org/docs/getting-started/docker">Docker</a
+            >, but can be installed on Windows, Mac, Linux, or any platforms as
+            long as you can install <a href="https://nodejs.org/en">NodeJS</a>
+          </p>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### [Connect Node-RED with MQTT](https://nodered.org/docs/getting-started/docker)
+
+            ### [Creating a dashboard](https://dashboard.flowfuse.com/getting-started.html)
+
+            **Note** Node-RED-dashboard is not longer maintained. It is still functioning but not recommended for new projects.
+          </textarea>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section>
+          <h3>License</h3>
+
+          <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" />
+          <p class="text-small align-left">
+            This course is licensed under a Creative Commons
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >Attribution-NonCommercial-ShareAlike 4.0 International (CC
+              BY-NC-SA 4.0)</a
+            >
+            license. This is a human-readable summary of (and not a substitute
+            for) the
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+              >license</a
+            >. Official translations of this license are available in other
+            languages.
+          </p>
+
+          <p class="text-small align-left">You are free to:</p>
+          <ul class="text-small">
+            <li>
+              Share — copy and redistribute the material in any medium or format
+            </li>
+            <li>Adapt — remix, transform, and build upon the material</li>
+          </ul>
+
+          <p class="text-small align-left">Under the following terms:</p>
+          <ul class="text-small">
+            <li>
+              Attribution — You must give appropriate credit, provide a link to
+              the license, and indicate if changes were made. You may do so in
+              any reasonable manner, but not in any way that suggests the
+              licensor endorses you or your use.
+            </li>
+            <li>
+              NonCommercial — You may not use the material for commercial
+              purposes.
+            </li>
+            <li>
+              ShareAlike — If you remix, transform, or build upon the material,
+              you must distribute your contributions under the same license as
+              the original.
+            </li>
+            <li>
+              No additional restrictions — You may not apply legal terms or
+              technological measures that legally restrict others from doing
+              anything the license permits.
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        autoAnimateDuration: 0.5,
+        customcontrols: {
+          controls: [
+            {
+              icon: '<i class="fa fa-pen-square"></i>',
+              title: "Toggle chalkboard (B)",
+              action: "RevealChalkboard.toggleChalkboard();",
+            },
+            {
+              icon: '<i class="fa fa-pen"></i>',
+              title: "Toggle notes canvas (C)",
+              action: "RevealChalkboard.toggleNotesCanvas();",
+            },
+          ],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealChalkboard,
+          RevealCustomControls,
+        ],
+      });
+    </script>
+  </body>
+</html>
